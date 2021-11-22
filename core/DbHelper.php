@@ -294,22 +294,7 @@ class DbHelper
      */
     public static function addMaxExecutionTimeHintToQuery($sql, $limit)
     {
-        if ($limit <= 0) {
-            return $sql;
-        }
-
-        $sql = trim($sql);
-        $pos = stripos($sql, 'SELECT');
-        if ($pos !== false) {
-
-            $timeInMs = $limit * 1000;
-            $timeInMs = (int) $timeInMs;
-            $maxExecutionTimeHint = ' /*+ MAX_EXECUTION_TIME('.$timeInMs.') */ ';
-
-            $sql = substr_replace($sql, 'SELECT ' . $maxExecutionTimeHint, $pos, strlen('SELECT'));
-        }
-
-        return $sql;
+        return Schema::getInstance()->addMaxExecutionTimeHintToQuery($sql, $limit);
     }
 
     /**

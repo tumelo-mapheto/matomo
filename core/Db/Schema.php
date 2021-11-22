@@ -208,4 +208,16 @@ class Schema extends Singleton
     {
         return $this->getSchema()->hasTables();
     }
+
+    /**
+     * Adds a MAX_EXECUTION_TIME hint into a SELECT query if $limit is bigger than 1
+     *
+     * @param string $sql  query to add hint to
+     * @param int $limit  time limit in seconds
+     * @return string
+     */
+    public function addMaxExecutionTimeHintToQuery($sql, $limit)
+    {
+        return $this->getSchema()->addMaxExecutionTimeHintToQuery($sql, $limit);
+    }
 }

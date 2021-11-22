@@ -105,4 +105,13 @@ interface SchemaInterface
      * @return bool  True if tables exist; false otherwise
      */
     public function hasTables();
+
+    /**
+     * Adds a MAX_EXECUTION_TIME hint into a SELECT query if $limit is bigger than 1
+     *
+     * @param string $sql  query to add hint to
+     * @param int $limit  time limit in seconds
+     * @return string
+     */
+    public static function addMaxExecutionTimeHintToQuery($sql, $limit);
 }
