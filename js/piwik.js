@@ -3005,7 +3005,7 @@ if (typeof window.Matomo !== 'object') {
                     appendix += '&uadata=' + JSON.stringify(ua);
 
                     if (request instanceof Array) {
-                        for (i = 0; i < request.length; i++) {
+                        for (var i = 0; i < request.length; i++) {
                             request[i] += appendix;
                         }
                     } else {
@@ -3013,7 +3013,7 @@ if (typeof window.Matomo !== 'object') {
                     }
 
                     callback(request);
-                }).catch(function (message) {
+                }, function (message) {
                     callback(request);
                 });
             }
