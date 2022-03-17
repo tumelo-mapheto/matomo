@@ -1002,7 +1002,7 @@ class Http
             }
         }
 
-        sort($clientHints);
+        ksort($clientHints);
 
         return $clientHints;
     }
